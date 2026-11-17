@@ -1,0 +1,40 @@
+# build output
+target/
+dist/
+web/node_modules/
+web/dist/*
+!web/dist/.gitkeep
+android/.gradle/
+android/build/
+android/app/build/
+android/local.properties
+*.apk
+*.dmg
+
+# secrets and local config - never commit
+.env
+.env.*
+*.pem
+*.key
+*.jks
+*.keystore
+*.p12
+secrets/
+.ngrok*
+ngrok.yml
+cloudflared*.yml
+cloudflared*.json
+board.db*
+
+# AI tooling / editor state
+.claude/
+CLAUDE.md
+AGENTS.md
+.cursor/
+.mcp.json
+.ruflo/
+.swarm/
+graphify-out/
+.idea/
+.vscode/
+.DS_Store

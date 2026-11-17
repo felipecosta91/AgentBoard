@@ -1,0 +1,42 @@
+[package]
+name = "agentboard"
+version = "0.1.0"
+edition = "2024"
+description = "Kanban that orchestrates Claude and Codex agents"
+license = "MIT"
+
+
+[dependencies]
+axum = { version = "0.8.9", features = ["ws", "multipart"] }
+getrandom = "0.4.3"
+hmac = "0.13.0"
+mime_guess = "2.0.5"
+regex = "1.13.1"
+reqwest = { version = "0.13.5", default-features = false, features = ["json", "rustls"] }
+rusqlite = { version = "0.43.0", features = ["bundled"] }
+rust-embed = "8.14.0"
+serde = { version = "1.0.229", features = ["derive"] }
+serde_json = "1.0.154"
+sha2 = "0.11.1"
+tao = "0.37.2"
+tokio = { version = "1.54.1", features = ["full"] }
+wry = "0.57.2"
+
+[target.'cfg(target_os = "macos")'.dependencies]
+muda = "0.21.2"
+
+[package.metadata.deb]
+name = "agentboard"
+maintainer = "AgentBoard contributors <noreply@users.noreply.github.com>"
+section = "devel"
+priority = "optional"
+depends = "libwebkit2gtk-4.1-0, libgtk-3-0, libxdo3"
+assets = [
+  ["target/release/agentboard", "usr/bin/", "755"],
+  ["installer/agentboard.desktop", "usr/share/applications/", "644"],
+  ["web/public/icon-512.png", "usr/share/icons/hicolor/512x512/apps/agentboard.png", "644"],
+]
+
+[profile.release]
+strip = true
+lto = "thin"

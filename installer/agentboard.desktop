@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=AgentBoard
+Comment=Kanban that orchestrates Claude and Codex agents
+Exec=agentboard
+Icon=agentboard
+Categories=Development;
+Terminal=false
